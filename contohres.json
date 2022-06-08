@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "merk": "Toyota",
+      "data": [
+        {
+          "id": 1,
+          "name": "Kijang Innova",
+          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
+          "years": ["2016", "2015", "2016"]
+        },
+        {
+          "id": 2,
+          "name": "Avanza",
+          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
+          "years": ["2016", "2015", "2016"]
+        },
+        {
+          "id": 3,
+          "name": "Camry",
+          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
+          "years": ["2016", "2015", "2016"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "merk": "Honda",
+      "data": [
+        {
+          "id": 1,
+          "name": "Kijang Innova",
+          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
+          "years": ["2016", "2015", "2016"]
+        },
+        {
+          "id": 2,
+          "name": "Avanza",
+          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
+          "years": ["2016", "2015", "2016"]
+        },
+        {
+          "id": 3,
+          "name": "Camry",
+          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
+          "years": ["2016", "2015", "2016"]
+        }
+      ]
+    }
+  ]
+}
