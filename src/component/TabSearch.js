@@ -58,6 +58,14 @@ export default function TabSearch() {
     }
   });
 
+  let group_model = cars.data.data.filter((value) => {
+    return value.merk
+      .toLocaleLowerCase()
+      .includes(valueMerk.toLocaleLowerCase());
+  });
+
+  console.log(group_model);
+
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
