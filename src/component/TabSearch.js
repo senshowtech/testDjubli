@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import { selectCar } from "../redux/carSlice";
+import { useNavigate } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -48,8 +50,8 @@ export default function TabSearch() {
   const [valueGroupModel, setvalueGroupModel] = React.useState("");
   const [valueModel, setvalueModel] = React.useState("");
   const [valueYear, setvalueYear] = React.useState("");
-
   const cars = useSelector(selectCar);
+  const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -112,6 +114,31 @@ export default function TabSearch() {
     year.push(value.tahun);
   });
 
+  let data_final = cars.data.data.filter((value) => {
+    if (valueYear !== "") {
+      return (
+        value.merk
+          .toLocaleLowerCase()
+          .includes(valueMerk.toLocaleLowerCase()) &&
+        value.group_model
+          .toLocaleLowerCase()
+          .includes(valueGroupModel.toLocaleLowerCase()) &&
+        value.model
+          .toLocaleLowerCase()
+          .includes(valueModel.toLocaleLowerCase()) &&
+        value.tahun.toLocaleLowerCase().includes(valueYear.toLocaleLowerCase())
+      );
+    }
+  });
+
+  const DetailPage = (id) => {
+    navigate("/detail-page", {
+      state: {
+        id: data_final,
+      },
+    });
+  };
+
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -140,7 +167,6 @@ export default function TabSearch() {
               renderInput={(params) => <TextField {...params} label="Merk" />}
             />
           </Box>
-
           <Box sx={{ ml: "20px" }}>
             <Autocomplete
               disabled={valueMerk === ""}
@@ -186,6 +212,13 @@ export default function TabSearch() {
             />
           </Box>
         </Box>
+        <Button
+          sx={{ bgcolor: "green", mt: 2, ml: -3 }}
+          onClick={() => DetailPage()}
+          variant="contained"
+        >
+          Cari
+        </Button>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Pembelian

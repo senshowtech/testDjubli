@@ -1,11 +1,10 @@
 import React from "react";
 import AppBarUser from "../component/AppBarUser";
 import SearchCard from "../component/SearchCard";
+import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import { useSelector, useDispatch } from "react-redux";
-import { selectCar } from "../redux/carSlice";
 
-export function HomePage() {
+export default function HomePage() {
   const pages = ["Login", "Register"];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -20,6 +19,7 @@ export function HomePage() {
   return (
     <Box>
       <Box>
+        <CssBaseline />
         <AppBarUser
           anchorElNav={anchorElNav}
           handleOpenNavMenu={handleOpenNavMenu}
