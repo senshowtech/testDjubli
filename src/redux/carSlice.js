@@ -13,14 +13,14 @@ const initialState = {
       {
         id: 2,
         merk: "Toyota",
-        group_model: "Kijang Inova",
+        group_model: "Avanza",
         model: "2.0 G AT",
         tahun: "2015",
       },
       {
         id: 3,
         merk: "Toyota",
-        group_model: "Kijang Inova",
+        group_model: "Camry",
         model: "2.7 V AT",
         tahun: "2016",
       },
@@ -34,14 +34,14 @@ const initialState = {
       {
         id: 5,
         merk: "Honda",
-        group_model: "CR-V",
+        group_model: "BR-V",
         model: "ALL NEW 2.0 AT",
         tahun: "2017",
       },
       {
         id: 6,
         merk: "Honda",
-        group_model: "CR-V",
+        group_model: "Accord",
         model: "ALL NEW 1.5 AT TURBO",
         tahun: "2018",
       },

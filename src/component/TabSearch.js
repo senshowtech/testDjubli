@@ -45,6 +45,7 @@ function a11yProps(index) {
 export default function TabSearch() {
   const [value, setValue] = React.useState(0);
   const [valueMerk, setvalueMerk] = React.useState("");
+  const [valueGroupModel, setvalueGroupModel] = React.useState("");
   const cars = useSelector(selectCar);
 
   const handleChange = (event, newValue) => {
@@ -58,13 +59,18 @@ export default function TabSearch() {
     }
   });
 
-  let group_model = cars.data.data.filter((value) => {
-    return value.merk
-      .toLocaleLowerCase()
-      .includes(valueMerk.toLocaleLowerCase());
+  let data_group_model = cars.data.data.filter((value) => {
+    if (valueMerk !== "") {
+      return value.merk
+        .toLocaleLowerCase()
+        .includes(valueMerk.toLocaleLowerCase());
+    }
   });
 
-  console.log(group_model);
+  let group_model = [];
+  data_group_model.forEach((value) => {
+    group_model.push(value.group_model);
+  });
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -94,11 +100,15 @@ export default function TabSearch() {
               renderInput={(params) => <TextField {...params} label="Merk" />}
             />
           </Box>
+
           <Box sx={{ ml: "20px" }}>
             <Autocomplete
-              disablePortal
               id="combo-box-demo"
-              options={merk}
+              options={group_model}
+              inputValue={valueGroupModel}
+              onInputChange={(event, newInputValue) => {
+                setvalueGroupModel(newInputValue);
+              }}
               sx={{ width: 600 }}
               renderInput={(params) => (
                 <TextField {...params} label="Group Model" />
