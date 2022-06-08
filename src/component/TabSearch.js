@@ -46,6 +46,9 @@ export default function TabSearch() {
   const [value, setValue] = React.useState(0);
   const [valueMerk, setvalueMerk] = React.useState("");
   const [valueGroupModel, setvalueGroupModel] = React.useState("");
+  const [valueModel, setvalueModel] = React.useState("");
+  const [valueYear, setvalueYear] = React.useState("");
+
   const cars = useSelector(selectCar);
 
   const handleChange = (event, newValue) => {
@@ -70,6 +73,43 @@ export default function TabSearch() {
   let group_model = [];
   data_group_model.forEach((value) => {
     group_model.push(value.group_model);
+  });
+
+  let data_model = cars.data.data.filter((value) => {
+    if (valueGroupModel !== "") {
+      return (
+        value.merk
+          .toLocaleLowerCase()
+          .includes(valueMerk.toLocaleLowerCase()) &&
+        value.group_model
+          .toLocaleLowerCase()
+          .includes(valueGroupModel.toLocaleLowerCase())
+      );
+    }
+  });
+
+  let model = [];
+  data_model.forEach((value) => {
+    model.push(value.model);
+  });
+
+  let data_year = cars.data.data.filter((value) => {
+    if (valueModel !== "") {
+      return (
+        value.merk
+          .toLocaleLowerCase()
+          .includes(valueMerk.toLocaleLowerCase()) &&
+        value.group_model
+          .toLocaleLowerCase()
+          .includes(valueGroupModel.toLocaleLowerCase()) &&
+        value.model.toLocaleLowerCase().includes(valueModel.toLocaleLowerCase())
+      );
+    }
+  });
+
+  let year = [];
+  data_year.forEach((value) => {
+    year.push(value.tahun);
   });
 
   return (
@@ -103,6 +143,7 @@ export default function TabSearch() {
 
           <Box sx={{ ml: "20px" }}>
             <Autocomplete
+              disabled={valueMerk === ""}
               id="combo-box-demo"
               options={group_model}
               inputValue={valueGroupModel}
@@ -116,25 +157,32 @@ export default function TabSearch() {
             />
           </Box>
         </Box>
+
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box sx={{ mt: "20px" }}>
             <Autocomplete
-              disablePortal
+              disabled={valueGroupModel === ""}
               id="combo-box-demo"
-              options={merk}
+              options={model}
+              inputValue={valueModel}
+              onInputChange={(event, newInputValue) => {
+                setvalueModel(newInputValue);
+              }}
               sx={{ width: 600 }}
               renderInput={(params) => <TextField {...params} label="Model" />}
             />
           </Box>
           <Box sx={{ ml: "20px", mt: "20px" }}>
             <Autocomplete
-              disablePortal
+              disabled={valueModel === ""}
               id="combo-box-demo"
-              options={merk}
+              options={year}
+              inputValue={valueYear}
+              onInputChange={(event, newInputValue) => {
+                setvalueYear(newInputValue);
+              }}
               sx={{ width: 600 }}
-              renderInput={(params) => (
-                <TextField {...params} label="Model Year" />
-              )}
+              renderInput={(params) => <TextField {...params} label="Year" />}
             />
           </Box>
         </Box>
