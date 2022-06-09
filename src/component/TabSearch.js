@@ -134,7 +134,7 @@ export default function TabSearch() {
   const DetailPage = (id) => {
     navigate("/detail-page", {
       state: {
-        id: data_final,
+        data: data_final,
       },
     });
   };
