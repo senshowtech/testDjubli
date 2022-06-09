@@ -100,9 +100,16 @@ export default function TabSearch() {
     }
   });
 
-  let model = [];
+  let many_model = [];
   data_model.forEach((value) => {
-    model.push(value.model);
+    many_model.push(value.model);
+  });
+
+  let model = [];
+  many_model.forEach((value) => {
+    if (!model.includes(value)) {
+      model.push(value);
+    }
   });
 
   // block year

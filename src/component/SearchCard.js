@@ -13,7 +13,7 @@ export default function SearchCard() {
           <Typography
             sx={{ fontSize: 24 }}
             className="font-link"
-            color="text.secondary"
+            color="green"
             gutterBottom
           >
             Cari Mobil
