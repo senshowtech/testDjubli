@@ -57,6 +57,7 @@ export default function TabSearch() {
     setValue(newValue);
   };
 
+  // block merk
   let merk = [];
   cars.data.data.forEach((value) => {
     if (!merk.includes(value.merk)) {
@@ -64,6 +65,7 @@ export default function TabSearch() {
     }
   });
 
+  // block group model
   let data_group_model = cars.data.data.filter((value) => {
     if (valueMerk !== "") {
       return value.merk
@@ -72,11 +74,19 @@ export default function TabSearch() {
     }
   });
 
-  let group_model = [];
+  let many_group_model = [];
   data_group_model.forEach((value) => {
-    group_model.push(value.group_model);
+    many_group_model.push(value.group_model);
   });
 
+  let group_model = [];
+  many_group_model.forEach((value) => {
+    if (!group_model.includes(value)) {
+      group_model.push(value);
+    }
+  });
+
+  // block model
   let data_model = cars.data.data.filter((value) => {
     if (valueGroupModel !== "") {
       return (
@@ -95,6 +105,7 @@ export default function TabSearch() {
     model.push(value.model);
   });
 
+  // block year
   let data_year = cars.data.data.filter((value) => {
     if (valueModel !== "") {
       return (
@@ -114,6 +125,7 @@ export default function TabSearch() {
     year.push(value.year);
   });
 
+  // block data final
   let data_final = cars.data.data.filter((value) => {
     if (valueYear !== "") {
       return (
