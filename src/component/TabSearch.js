@@ -127,9 +127,16 @@ export default function TabSearch() {
     }
   });
 
-  let year = [];
+  let many_year = [];
   data_year.forEach((value) => {
-    year.push(value.year);
+    many_year.push(value.year);
+  });
+
+  let year = [];
+  many_year.forEach((value) => {
+    if (!year.includes(value)) {
+      year.push(value);
+    }
   });
 
   // block data final

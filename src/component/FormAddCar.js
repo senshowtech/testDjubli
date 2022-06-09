@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import Alert from "@mui/material/Alert";
 import { useDispatch } from "react-redux";
 import { Add_Car } from "../redux/carSlice";
 import { styled } from "@mui/material/styles";
@@ -11,7 +12,7 @@ import { styled } from "@mui/material/styles";
 export default function FormAddCar() {
   const dispatch = useDispatch();
   const [image, setImage] = React.useState("");
-  const [url, setUrl] = React.useState("");
+  const [alert, setAlert] = React.useState("");
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -45,6 +46,7 @@ export default function FormAddCar() {
           img: data.url,
         };
         dispatch(Add_Car(data_final));
+        setTimeout(() => setAlert("add"), 2000);
       })
       .catch((err) => console.log(err));
   };
@@ -55,6 +57,9 @@ export default function FormAddCar() {
 
   return (
     <form onSubmit={HandleSubmit}>
+      {alert === "add" ? (
+        <Alert severity="success">Data Telah Di Tambahkan</Alert>
+      ) : null}
       <Box sx={{ display: "flex", flexDirection: "column", mt: 2 }}>
         <Box sx={{ display: "flex", flexDirection: "row" }}>
           <TextField
