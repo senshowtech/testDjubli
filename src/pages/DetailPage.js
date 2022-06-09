@@ -37,7 +37,7 @@ export default function DetailPage() {
                   <CardDetail
                     merk={value.merk}
                     group_model={value.group_model}
-                    year={value.tahun}
+                    year={value.year}
                     model={value.model}
                   />
                 </Box>

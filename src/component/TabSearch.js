@@ -111,7 +111,7 @@ export default function TabSearch() {
 
   let year = [];
   data_year.forEach((value) => {
-    year.push(value.tahun);
+    year.push(value.year);
   });
 
   let data_final = cars.data.data.filter((value) => {
@@ -126,7 +126,7 @@ export default function TabSearch() {
         value.model
           .toLocaleLowerCase()
           .includes(valueModel.toLocaleLowerCase()) &&
-        value.tahun.toLocaleLowerCase().includes(valueYear.toLocaleLowerCase())
+        value.year.toLocaleLowerCase().includes(valueYear.toLocaleLowerCase())
       );
     }
   });
