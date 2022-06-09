@@ -23,7 +23,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -173,72 +173,66 @@ export default function TabSearch() {
       </Box>
 
       <TabPanel value={value} index={0}>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Box>
-            <Autocomplete
-              sx={{ width: 600 }}
-              inputValue={valueMerk}
-              onInputChange={(event, newInputValue) => {
-                setvalueMerk(newInputValue);
-              }}
-              id="controllable-states-demo"
-              options={merk}
-              renderInput={(params) => <TextField {...params} label="Merk" />}
-            />
-          </Box>
-          <Box sx={{ ml: "20px" }}>
-            <Autocomplete
-              disabled={valueMerk === ""}
-              id="combo-box-demo"
-              options={group_model}
-              inputValue={valueGroupModel}
-              onInputChange={(event, newInputValue) => {
-                setvalueGroupModel(newInputValue);
-              }}
-              sx={{ width: 600 }}
-              renderInput={(params) => (
-                <TextField {...params} label="Group Model" />
-              )}
-            />
-          </Box>
+        <Box>
+          <Autocomplete
+            sx={{ mt: "20px" }}
+            inputValue={valueMerk}
+            onInputChange={(event, newInputValue) => {
+              setvalueMerk(newInputValue);
+            }}
+            id="controllable-states-demo"
+            options={merk}
+            renderInput={(params) => <TextField {...params} label="Merk" />}
+          />
         </Box>
-
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Box sx={{ mt: "20px" }}>
-            <Autocomplete
-              disabled={valueGroupModel === ""}
-              id="combo-box-demo"
-              options={model}
-              inputValue={valueModel}
-              onInputChange={(event, newInputValue) => {
-                setvalueModel(newInputValue);
-              }}
-              sx={{ width: 600 }}
-              renderInput={(params) => <TextField {...params} label="Model" />}
-            />
-          </Box>
-          <Box sx={{ ml: "20px", mt: "20px" }}>
-            <Autocomplete
-              disabled={valueModel === ""}
-              id="combo-box-demo"
-              options={year}
-              inputValue={valueYear}
-              onInputChange={(event, newInputValue) => {
-                setvalueYear(newInputValue);
-              }}
-              sx={{ width: 600 }}
-              renderInput={(params) => <TextField {...params} label="Year" />}
-            />
-          </Box>
+        <Box sx={{ mt: "20px" }}>
+          <Autocomplete
+            disabled={valueMerk === ""}
+            id="combo-box-demo"
+            options={group_model}
+            inputValue={valueGroupModel}
+            onInputChange={(event, newInputValue) => {
+              setvalueGroupModel(newInputValue);
+            }}
+            renderInput={(params) => (
+              <TextField {...params} label="Group Model" />
+            )}
+          />
         </Box>
-
-        <Button
-          sx={{ bgcolor: "green", mt: 2, ml: -3 }}
-          onClick={() => DetailPage()}
-          variant="contained"
-        >
-          Cari
-        </Button>
+        <Box sx={{ mt: "20px" }}>
+          <Autocomplete
+            disabled={valueGroupModel === ""}
+            id="combo-box-demo"
+            options={model}
+            inputValue={valueModel}
+            onInputChange={(event, newInputValue) => {
+              setvalueModel(newInputValue);
+            }}
+            renderInput={(params) => <TextField {...params} label="Model" />}
+          />
+        </Box>
+        <Box sx={{ mt: "20px" }}>
+          <Autocomplete
+            disabled={valueModel === ""}
+            id="combo-box-demo"
+            options={year}
+            inputValue={valueYear}
+            onInputChange={(event, newInputValue) => {
+              setvalueYear(newInputValue);
+            }}
+            renderInput={(params) => <TextField {...params} label="Year" />}
+          />
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+          <Button
+            fullWidth
+            sx={{ bgcolor: "green", ml: 20, mr: 20 }}
+            onClick={() => DetailPage()}
+            variant="contained"
+          >
+            Cari
+          </Button>
+        </Box>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Penjualan
