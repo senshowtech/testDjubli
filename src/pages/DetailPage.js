@@ -39,6 +39,11 @@ export default function DetailPage() {
                     group_model={value.group_model}
                     year={value.year}
                     model={value.model}
+                    img={value.img}
+                    price={value.price}
+                    status={value.status}
+                    Km={value.Km}
+                    location={value.location}
                   />
                 </Box>
               </Grid>

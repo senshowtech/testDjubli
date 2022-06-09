@@ -231,6 +231,7 @@ export default function TabSearch() {
             />
           </Box>
         </Box>
+
         <Button
           sx={{ bgcolor: "green", mt: 2, ml: -3 }}
           onClick={() => DetailPage()}
@@ -240,7 +241,7 @@ export default function TabSearch() {
         </Button>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Pembelian
+        Penjualan
       </TabPanel>
     </Box>
   );

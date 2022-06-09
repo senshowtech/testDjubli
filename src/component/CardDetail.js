@@ -8,7 +8,17 @@ import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
 
-export default function CardDetail({ merk, group_model, year, model }) {
+export default function CardDetail({
+  merk,
+  group_model,
+  year,
+  model,
+  img,
+  price,
+  Km,
+  status,
+  location,
+}) {
   return (
     <Card sx={{ margin: "20px", borderRadius: "10px" }}>
       <CardHeader
@@ -18,14 +28,8 @@ export default function CardDetail({ merk, group_model, year, model }) {
           </Avatar>
         }
         title="user"
-        subheader="September 14, 2016"
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
-      />
+      <CardMedia component="img" height="194" src={img} alt="Paella dish" />
       <CardContent>
         <Box sx={{ display: "flex" }}>
           <h5 style={{ marginRight: "3px" }}>{merk}</h5>
@@ -35,14 +39,13 @@ export default function CardDetail({ merk, group_model, year, model }) {
         <h5 style={{ marginTop: "-10px" }}>{year}</h5>
         <Divider sx={{ mt: -1 }} />
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <h5>Bekas, KM 41.000</h5>
+          <h5>{`${status}, KM ${Km}`}</h5>
           <h5>Dealer</h5>
         </Box>
         <Box sx={{ display: "flex", mt: -4 }}>
-          <h5 style={{ marginRight: "3px" }}>Tambora,</h5>
-          <h5 style={{ marginRight: "100px" }}>Jakarta Pusat</h5>
+          <h5 style={{ marginRight: "3px" }}>{location}</h5>
         </Box>
-        <h4 style={{ marginTop: "-15px" }}>Rp.250.000.000</h4>
+        <h4 style={{ marginTop: "-15px" }}>{price}</h4>
       </CardContent>
     </Card>
   );
