@@ -3,50 +3,68 @@
     {
       "id": 1,
       "merk": "Toyota",
-      "data": [
-        {
-          "id": 1,
-          "name": "Kijang Innova",
-          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
-          "years": ["2016", "2015", "2016"]
-        },
-        {
-          "id": 2,
-          "name": "Avanza",
-          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
-          "years": ["2016", "2015", "2016"]
-        },
-        {
-          "id": 3,
-          "name": "Camry",
-          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
-          "years": ["2016", "2015", "2016"]
-        }
-      ]
+      "group_model": "Kijang Inova",
+      "model": "2.0 E MT",
+      "year": "2016",
+      "status": "Bekas",
+      "KM": "41.000",
+      "location": "Tambora,Jakarta Pusat",
+      "price": "Rp.250.000.000"
     },
     {
       "id": 2,
+      "merk": "Toyota",
+      "group_model": "Avanza",
+      "model": "2.0 G AT",
+      "year": "2015",
+      "status": "Bekas",
+      "KM": "42.000",
+      "location": "Tambora,Jakarta Pusat",
+      "price": "Rp.250.000.000"
+    },
+    {
+      "id": 3,
+      "merk": "Toyota",
+      "group_model": "Camry",
+      "model": "2.7 V AT",
+      "year": "2016",
+      "status": "Bekas",
+      "KM": "43.000",
+      "location": "Tambora,Jakarta Pusat",
+      "price": "Rp.250.000.000"
+    },
+    {
+      "id": 4,
       "merk": "Honda",
-      "data": [
-        {
-          "id": 1,
-          "name": "Kijang Innova",
-          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
-          "years": ["2016", "2015", "2016"]
-        },
-        {
-          "id": 2,
-          "name": "Avanza",
-          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
-          "years": ["2016", "2015", "2016"]
-        },
-        {
-          "id": 3,
-          "name": "Camry",
-          "model": ["2.0 E MT", "2.0 G AT", "2.7 V AT"],
-          "years": ["2016", "2015", "2016"]
-        }
-      ]
+      "group_model": "CR-V",
+      "model": "ALL NEW 2.4 AT",
+      "year": "2016",
+      "status": "Bekas",
+      "KM": "44.000",
+      "location": "Tambora,Jakarta Pusat",
+      "price": "Rp.250.000.000"
+    },
+    {
+      "id": 5,
+      "merk": "Honda",
+      "group_model": "BR-V",
+      "model": "ALL NEW 2.0 AT",
+      "year": "2017",
+      "status": "Bekas",
+      "KM": "45.000",
+      "location": "Tambora,Jakarta Pusat",
+      "price": "Rp.250.000.000"
+    },
+    {
+      "id": 6,
+      "merk": "Honda",
+      "group_model": "Accord",
+      "model": "ALL NEW 1.5 AT TURBO",
+      "year": "2018",
+      "status": "Bekas",
+      "KM": "46.000",
+      "location": "Tambora,Jakarta Pusat",
+      "price": "Rp.250.000.000"
     }
   ]
 }

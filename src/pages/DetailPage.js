@@ -32,7 +32,7 @@ export default function DetailPage() {
         <Grid container spacing={2}>
           {data_detail.data.map((value) => {
             return (
-              <Grid item xs={4} key={value.id}>
+              <Grid item xs={4} key={value.model}>
                 <Box>
                   <CardDetail
                     merk={value.merk}
