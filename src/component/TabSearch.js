@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import { selectCar } from "../redux/carSlice";
 import { useNavigate } from "react-router-dom";
-
+import FormAddCar from "./FormAddCar";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -175,7 +175,7 @@ export default function TabSearch() {
       <TabPanel value={value} index={0}>
         <Box>
           <Autocomplete
-            sx={{ mt: "20px" }}
+            sx={{ mt: "40px" }}
             inputValue={valueMerk}
             onInputChange={(event, newInputValue) => {
               setvalueMerk(newInputValue);
@@ -235,7 +235,7 @@ export default function TabSearch() {
         </Box>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Penjualan
+        <FormAddCar />
       </TabPanel>
     </Box>
   );

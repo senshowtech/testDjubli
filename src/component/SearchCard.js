@@ -8,7 +8,15 @@ import TabSearch from "./TabSearch";
 export default function SearchCard() {
   return (
     <Box sx={{ display: "flex", justifyContent: "center", mt: "36px" }}>
-      <Card sx={{ width: "1150px", height: "500px", borderRadius: "20px" }}>
+      <Card
+        sx={{
+          width: "1150px",
+          height: "550px",
+          ml: { xs: 2, sm: 2, md: 2, lg: 0 },
+          mr: { xs: 2, sm: 2, md: 2, lg: 0 },
+          borderRadius: "20px",
+        }}
+      >
         <CardContent>
           <Typography
             sx={{ fontSize: 24 }}

@@ -297,8 +297,8 @@ export const carSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    Add_Car: (state) => {
-      console.log(current(state));
+    Add_Car: (state, action) => {
+      state.data.data.push(action.payload);
     },
   },
 });
