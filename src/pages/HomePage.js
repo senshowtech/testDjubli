@@ -1,5 +1,6 @@
 import React from "react";
 import AppBarUser from "../component/AppBarUser";
+import Header from "../component/Header";
 import SearchCard from "../component/SearchCard";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
@@ -26,6 +27,7 @@ export default function HomePage() {
           handleCloseNavMenu={handleCloseNavMenu}
           pages={pages}
         />
+        <Header />
         <SearchCard />
       </Box>
     </Box>
