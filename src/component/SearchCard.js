@@ -11,7 +11,7 @@ export default function SearchCard() {
       <Card
         sx={{
           width: "1150px",
-          height: "550px",
+          height: "580px",
           ml: { xs: 2, sm: 2, md: 2, lg: 0 },
           mr: { xs: 2, sm: 2, md: 2, lg: 0 },
           borderRadius: "20px",

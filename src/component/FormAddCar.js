@@ -5,6 +5,8 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Alert from "@mui/material/Alert";
+import LoadingButton from "@mui/lab/LoadingButton";
+import SaveIcon from "@mui/icons-material/Save";
 import { useDispatch } from "react-redux";
 import { Add_Car } from "../redux/carSlice";
 import { styled } from "@mui/material/styles";
@@ -13,42 +15,51 @@ export default function FormAddCar() {
   const dispatch = useDispatch();
   const [image, setImage] = React.useState("");
   const [alert, setAlert] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "djubli");
-    data.append("cloud_name", "dumbmerch");
-    fetch("https://api.cloudinary.com/v1_1/dumbmerch/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        let merk = e.target.merk.value;
-        let group_model = e.target.group.value;
-        let model = e.target.model.value;
-        let year = e.target.year.value;
-        let status = e.target.status.value;
-        let km = e.target.km.value;
-        let location = e.target.location.value;
-        let price = e.target.price.value;
-        let data_final = {
-          merk: merk,
-          group_model: group_model,
-          model: model,
-          year: year,
-          status: status,
-          Km: km,
-          location: location,
-          price: price,
-          img: data.url,
-        };
-        dispatch(Add_Car(data_final));
-        setTimeout(() => setAlert("add"), 2000);
+    if (image === "") {
+      setTimeout(() => setAlert("add"), 6000);
+    } else {
+      data.append("file", image);
+      data.append("upload_preset", "djubli");
+      data.append("cloud_name", "dumbmerch");
+      fetch("https://api.cloudinary.com/v1_1/dumbmerch/image/upload", {
+        method: "post",
+        body: data,
       })
-      .catch((err) => console.log(err));
+        .then((resp) => resp.json())
+        .then((data) => {
+          let merk = e.target.merk.value;
+          let group_model = e.target.group.value;
+          let model = e.target.model.value;
+          let year = e.target.year.value;
+          let status = e.target.status.value;
+          let km = e.target.km.value;
+          let location = e.target.location.value;
+          let price = e.target.price.value;
+          let data_final = {
+            merk: merk,
+            group_model: group_model,
+            model: model,
+            year: year,
+            status: status,
+            Km: km,
+            location: location,
+            price: price,
+            img: data.url,
+          };
+          dispatch(Add_Car(data_final));
+          setAlert("add");
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const Input = styled("input")({
@@ -59,6 +70,8 @@ export default function FormAddCar() {
     <form onSubmit={HandleSubmit}>
       {alert === "add" ? (
         <Alert severity="success">Data Telah Di Tambahkan</Alert>
+      ) : alert === "image" ? (
+        <Alert severity="error">Silahkan Pilih gambar</Alert>
       ) : null}
       <Box sx={{ display: "flex", flexDirection: "column", mt: 2 }}>
         <Box sx={{ display: "flex", flexDirection: "row" }}>
@@ -134,7 +147,7 @@ export default function FormAddCar() {
           />
         </Box>
         <Box sx={{ display: "flex", justifyContent: "start", mt: 2 }}>
-          <label htmlFor="icon-button-file">
+          <label htmlFor="icon-button-file" style={{ display: "flex" }}>
             <Input
               onChange={(e) => setImage(e.target.files[0])}
               accept="image/*"
@@ -149,19 +162,37 @@ export default function FormAddCar() {
             >
               <PhotoCamera />
             </IconButton>
+            {image === "" ? (
+              <p style={{ marginTop: "10px" }}>Pilih Gambar</p>
+            ) : null}
           </label>
           <p>{image.name}</p>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-          <Button
-            type="submit"
-            fullWidth
-            sx={{ bgcolor: "green", ml: 20, mr: 20 }}
-            variant="contained"
-          >
-            Save
-          </Button>
-        </Box>
+        {loading ? (
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <LoadingButton
+              loading
+              fullWidth
+              sx={{ bgcolor: "green", ml: 20, mr: 20 }}
+              loadingPosition="start"
+              startIcon={<SaveIcon />}
+              variant="outlined"
+            >
+              Save
+            </LoadingButton>
+          </Box>
+        ) : (
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <Button
+              type="submit"
+              fullWidth
+              sx={{ bgcolor: "green", ml: 20, mr: 20 }}
+              variant="contained"
+            >
+              Save
+            </Button>
+          </Box>
+        )}
       </Box>
     </form>
   );
