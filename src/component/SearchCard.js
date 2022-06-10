@@ -10,6 +10,7 @@ export default function SearchCard() {
     <Box sx={{ display: "flex", justifyContent: "center", mt: "36px" }}>
       <Card
         sx={{
+          mb: 8,
           width: "1150px",
           height: "580px",
           ml: { xs: 2, sm: 2, md: 2, lg: 0 },

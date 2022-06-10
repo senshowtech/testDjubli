@@ -19,11 +19,11 @@ export default function FormAddCar() {
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     const data = new FormData();
     if (image === "") {
-      setTimeout(() => setAlert("add"), 6000);
+      setAlert("image");
     } else {
+      setLoading(true);
       data.append("file", image);
       data.append("upload_preset", "djubli");
       data.append("cloud_name", "dumbmerch");

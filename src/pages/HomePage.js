@@ -2,6 +2,7 @@ import React from "react";
 import AppBarUser from "../component/AppBarUser";
 import Header from "../component/Header";
 import SearchCard from "../component/SearchCard";
+import Footer from "../component/Footer";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 
@@ -29,6 +30,7 @@ export default function HomePage() {
         />
         <Header />
         <SearchCard />
+        <Footer />
       </Box>
     </Box>
   );
