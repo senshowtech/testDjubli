@@ -1,4 +1,4 @@
-# Getting Started with Create React App and Redux
+# djubli
 
 Proyek ini menggunakan state management Redux dan css framework MUI Element
 
