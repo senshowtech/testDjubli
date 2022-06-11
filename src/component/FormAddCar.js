@@ -47,9 +47,9 @@ export default function FormAddCar() {
             model: model,
             year: year,
             status: status,
-            Km: km,
+            Km: String(km),
             location: location,
-            price: price,
+            price: String(price),
             img: data.url,
           };
           dispatch(Add_Car(data_final));
@@ -106,6 +106,7 @@ export default function FormAddCar() {
             sx={{ width: "50%" }}
             id="outlined-basic"
             name="year"
+            type="number"
             label="Year"
             variant="outlined"
           />
@@ -124,6 +125,7 @@ export default function FormAddCar() {
             sx={{ width: "50%" }}
             id="outlined-basic"
             name="km"
+            type="number"
             label="Km"
             variant="outlined"
           />
@@ -142,6 +144,7 @@ export default function FormAddCar() {
             sx={{ width: "50%" }}
             id="outlined-basic"
             name="price"
+            type="number"
             label="Price"
             variant="outlined"
           />

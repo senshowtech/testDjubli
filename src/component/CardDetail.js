@@ -19,16 +19,13 @@ export default function CardDetail({
   status,
   location,
 }) {
+  let formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  });
   return (
     <Card sx={{ margin: "20px", borderRadius: "10px" }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        title="user"
-      />
       <CardMedia component="img" height="194" src={img} alt="Paella dish" />
       <CardContent>
         <Box sx={{ display: "flex" }}>
@@ -45,7 +42,7 @@ export default function CardDetail({
         <Box sx={{ display: "flex", mt: -4 }}>
           <h5 style={{ marginRight: "3px" }}>{location}</h5>
         </Box>
-        <h4 style={{ marginTop: "-15px" }}>{price}</h4>
+        <h4 style={{ marginTop: "-15px" }}>{formatter.format(price)}</h4>
       </CardContent>
     </Card>
   );
